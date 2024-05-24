@@ -1,0 +1,57 @@
+/* Footer Styling */
+footer {
+    background-color: #1b2335;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 20px;
+}
+
+footer p {
+    font-size: 1rem;
+    margin: 10px 0;
+}
+
+footer nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+footer nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+footer nav a:hover {
+    color: #0906db;
+}
+
+/* LinkedIn Icon Styling */
+.linkedin-icon {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: white; /* Add a background color if needed */
+    transition: transform 0.3s, background-color 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.linkedin-icon img {
+    width: 95%;
+    height: 95%;
+    object-fit: cover;
+}
+
+.linkedin-icon:hover {
+    transform: scale(1.2);
+    background-color: #0077b5; /* LinkedIn blue color */
+}

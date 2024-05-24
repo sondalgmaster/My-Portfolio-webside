@@ -1,0 +1,39 @@
+/* Header Styling */
+header {
+    background-color: #1b2335;
+    color: #c2bad2;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+    
+}
+
+
+.header-left {
+    margin-right: auto; /* Push it to the left */
+    margin-left: 100px; /* Add margin to push it 100px from the left */
+    display: flex; /* Align vertically with .header-right */
+    align-items: center; /* Align vertically with .header-right */
+    text-align: center;
+    
+    
+}
+
+.header-right {
+    margin-left: auto; /* Push it to the right */
+    margin-right: 100px; /* Add margin to push it 100px from the right */
+    align-items: center;
+}
+
+.header-right a {
+    color: #c2bad2;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.header-right a:hover {
+    color: #0906db;
+}
+
