@@ -1,16 +1,19 @@
 <%- include("./partials/header.ejs") %>
-<link rel="stylesheet" href="/style.css">
 <script src="/script/script.js" defer></script>
 <script src="/script/phone.js" defer></script>
 
 <body>
     <!-- about Me -->
-    <section>
-        <h1 class="name">Hi, I'm</h1>
-        <h2 class="name">Patryk Posluszny</h2>
-        <h3 class="role">Junior Developer</h3>
-        <p>As a graduating student from Nannestad VGS, I have a diverse skill set in programming languages, including HTML, CSS, Javascript, Node.js, Python, and particularly proficient in MSSQL. I have hands-on experience in web development and database modeling, with a focus on creating robust solutions</p>
+    <section class="intro">
+        <h1 class="name" id="name1"></h1>
+        <h2 class="name" id="name2"></h2>
+        <h3 class="role" id="role"></h3>
+        <div class="aboutMe"><p>As a graduating student from Nannestad VGS, I have a diverse skill set in programming languages, including HTML, CSS, Javascript, Node.js, Python, and particularly proficient in MSSQL. I have hands-on experience in web development and database modeling, with a focus on creating robust solutions.</p></div>
+        
     </section>
+    
+    
+    
 
      <!-- My skils -->
      <section class="skill-tree">
@@ -34,6 +37,8 @@
                     <li>JavaScript</li>
                     <li>Node.js</li>
                     <li>Python</li>
+                    <li>MSSQL</li>
+                    <li>MYSQL</li>
                 </ul>
             </div>
             <div class="connector"></div>
@@ -42,7 +47,7 @@
                 <ul>
                     <li>Windows Server</li>
                     <li>Linux Servers</li>
-                    <li>Virtualization</li>
+                    <li>Virtualization (HyperV)</li>
                     <li>Networking</li>
                 </ul>
             </div>
@@ -58,7 +63,36 @@
 
     <!-- Contact-->
     <section>
-
+        <h2>Contact Me</h2>
+        <form action="/submit-contact-form" method="POST">
+            <div>
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" required>
+            </div>
+            <div>
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" required>
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div>
+                <label for="phone">Phone Number (optional):</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+            <div>
+                <label for="company">Company (optional):</label>
+                <input type="text" id="company" name="company">
+            </div>
+            <div>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="6" maxlength="1000" required></textarea>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        
+        
     </section>
 </body>
 
