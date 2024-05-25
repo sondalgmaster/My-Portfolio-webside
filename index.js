@@ -2,8 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import mysql from "mysql";
 import nodemailer from "nodemailer";
-import { promises as fs } from "fs";
-import { info } from "console";
+import fs from "fs/promises";
 
 
 
@@ -13,8 +12,12 @@ dotenv.config();
 
 //login form .env
 const port = process.env.PORT || 3000;
+//email
 const myemail = process.env.MY_EMAIL;
 const appPass = process.env.APP_PASS;
+//my secound email
+const myemail2 = process.env.MY_EMAIL2;
+//MYSQL
 const dbUser = process.env.DB_USER;
 const dbPass = process.env.DB_PASS;
 
@@ -44,47 +47,79 @@ app.post('/submit-contact-form', (req, res) => {
     const sql = `INSERT INTO mail_informasjon (navn, etternavn, bedrift, email, telefonnummer, meling) VALUES (?, ?, ?, ?, ?, ?)`;
     const values = [firstName, lastName, email, phone, company, message];
   
-    // Execute MySQL query
-    db.query(sql, values, (error, results, fields) => {
-      if (error) {
-        console.error('Error inserting data into MySQL:', error);
-        res.status(500).send('Internal Server Error');
-        return;
-      }
+    try {
+      // Execute MySQL query
+      db.query(sql, values, async (error, results, fields) => {
+        if (error) {
+          console.error('Error inserting data into MySQL:', error);
+          res.status(500).send('Internal Server Error');
+          return;
+        }
   
-      console.log('Data inserted successfully');
-      res.redirect('/');
-    });
+        console.log('Data inserted successfully');
+  
+        // Send mail
+        try {
+          await sendMail({ email, firstName, lastName, company, phone, message });
+          res.redirect('/');
+        } catch (mailError) {
+          console.error('Error sending email:', mailError);
+          res.status(500).send('Internal Server Error');
+        }
+      });
+    } catch (error) {
+      console.error('Unexpected error:', error);
+      res.status(500).send('Internal Server Error');
+    }
   });
 
-  async function Mail(){
-    const {email} = req.body;
-    const transporter = nodeMailer.createTransport({
-        host: 'google.com',
-        port: 465,
-        secure: true,
-        auth: {
-            user: myemail,
-            pass: appPass
-        }
-    })
-    const info = await transporter.sendMail({
-        from: myemail,
-        to: email,
-        subject: `Thank you, I will answer as quickly as possible. 
-        This is the content of your mail 
-        First name: ${firstName}
-        Last name: ${lastName}
-        company: ${company}
-        phone Number ${phone}
-        message: ${message}
-        `
+ 
+async function sendMail({ email, firstName, lastName, company, phone, message }) {
+  const transporter = nodemailer.createTransport({
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true,
+      auth: {
+          user: myemail,
+          pass: appPass
+      }
+  });
 
-    })
-    console.log("Mesage sent: " + info.messageId);
+  // Mail to the user
+  const userMailOptions = {
+      from: myemail,
+      to: email,
+      subject: 'Thank you, I will answer as quickly as possible.',
+      text: `This is the content of your mail:
+      First name: ${firstName}
+      Last name: ${lastName}
+      Company: ${company}
+      Phone Number: ${phone}
+      Email: ${email}
+      Message: ${message}`
+  };
 
+  // Mail to yourself
+  const selfMailOptions = {
+      from: myemail,
+      to: myemail2,
+      subject: 'New contact form submission',
+      text: `You have received a new contact form submission:
+      First name: ${firstName}
+      Last name: ${lastName}
+      Company: ${company}
+      Phone Number: ${phone}
+      Email: ${email}
+      Message: ${message}`
+  };
 
-  }
+  // Send the emails
+  const userMailInfo = await transporter.sendMail(userMailOptions);
+  console.log("User email sent: " + userMailInfo.messageId);
+
+  const selfMailInfo = await transporter.sendMail(selfMailOptions);
+  console.log("Self email sent: " + selfMailInfo.messageId);
+}
   
 
 
