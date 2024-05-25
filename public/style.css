@@ -25,10 +25,49 @@ p {
     color: #ccc; /* Light grey color for text */
 }
 
+/*section view*/
+section {
+    opacity: 0;
+    transition: opacity 1.1s, transform 0.5s;
+    padding-bottom: 500px;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/*section style*/
+section{
+    padding-bottom: 150px;
+}
+html {
+    scroll-behavior: smooth;
+}
 
 
 
-/*About me stile */
+/*Home*/
+.home{
+    padding-top: 200px;
+}
+
+.pHome {
+    max-width: 1200px;
+    width: 100%; 
+    text-align: left;
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+    background-color: rgba(29, 25, 75, 0.062); 
+    padding: 20px;
+    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+    margin: auto; 
+    
+}
+
 .name {
     color: #00ff00;
     font-size: 35px;
@@ -52,18 +91,25 @@ p {
     font-size: 40px; 
 }
 
-.aboutMe {
-    max-width: 900px;
+
+
+/*About me stile */
+
+
+.paboutMe {
+    max-width: 1200px;
     width: 100%; 
     text-align: left;
     display: flex;
     align-items: center;
     flex-direction: column; 
-    background-color: rgba(255, 255, 255, 0.1); 
+    background-color: rgba(29, 25, 75, 0.062); 
     padding: 20px;
     border-radius: 10px; 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
-    margin: auto; 
+    margin: auto;
+    margin-bottom: 100px;
+    
 }
 
 

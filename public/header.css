@@ -1,12 +1,17 @@
 /* Header Styling */
 header {
     background-color: #1b2335;
-    color: #c2bad2;
+    color:  #00ff00;;
     padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 90px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
     
 }
 
@@ -28,7 +33,7 @@ header {
 }
 
 .header-right a {
-    color: #c2bad2;
+    color:  #00ff00;;
     text-decoration: none;
     margin-left: 20px;
 }

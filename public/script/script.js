@@ -41,3 +41,40 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+//scrol sections
+document.addEventListener("DOMContentLoaded", function() {
+    window.addEventListener("scroll", function() {
+        let sections = document.querySelectorAll("section");
+        sections.forEach(function(section) {
+            let position = section.getBoundingClientRect();
+            if (position.top < window.innerHeight && position.bottom >= 0) {
+                section.classList.add("visible");
+            } else {
+                section.classList.remove("visible");
+            }
+        });
+    });
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    let footer = document.querySelector("footer");
+
+    window.addEventListener("scroll", function() {
+        // Calculate how far the user has scrolled from the top
+        let scrollHeight = document.documentElement.scrollHeight;
+        let clientHeight = window.innerHeight;
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        let scrollBottom = scrollHeight - clientHeight - scrollTop;
+
+        // If the user has scrolled to the bottom of the page, show the footer
+        if (scrollBottom < 50) { // You can adjust the threshold value (50 in this case)
+            footer.classList.add("visible");
+        } else {
+            footer.classList.remove("visible");
+        }
+    });
+});
+
+
+
