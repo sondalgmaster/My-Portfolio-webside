@@ -1,0 +1,139 @@
+<%- include("./partials/header.ejs") %>
+<script src="/script/script.js" defer></script>
+<script src="/script/phone.js" defer></script>
+
+<section class="projectExplain">
+    <h1>My Unifront Project</h1>
+
+    <div class="slider">
+        <div class="slides">
+            <div class="slide">
+                <h2>Login Page</h2>
+                <img src="/images/Login.PNG" alt="Login Page Screenshot" class="unifrontIMG">
+                <div class="description">
+                    
+                    <p>To log in to the app, you must obtain login credentials from someone who has the permission to create a user in the app.</p>
+                    <p>When you log in, the app checks the password and username against the user table to see if they match. If you enter an incorrect password or username, an error message will indicate that either the username or password is incorrect.</p>
+                </div>
+            </div>
+    
+            <div class="slide">
+                <h2>User Administration (User)</h2>
+                <img src="/images/UnifrontProject1.PNG" alt="User Administration Screenshot" class="unifrontIMG">
+                <div class="description">
+                   
+                    <p>On this page, you can see all users in the app, add new users, delete users, edit user information, or search for specific users.</p>
+                    <p>This section includes an MSSQL function to get all the users and search for them, as well as procedures to insert, delete, and update users.</p>
+                </div>
+            </div>
+    
+            <div class="slide">
+                <h2>Access (Tilgang)</h2>
+                <img src="/images/Tilgang.PNG" alt="Access Screenshot" class="unifrontIMG">
+                <div class="description">
+                    
+                    <p>The access section was an experiment while learning new tools. It includes select functions and insert, update, and delete procedures.</p>
+                </div>
+            </div>
+    
+            <div class="slide">
+                <h2>Position (Stilling)</h2>
+                <img src="/images/Stiling.PNG" alt="Position Screenshot" class="unifrontIMG">
+                <div class="description">
+                   
+                    <p>In this section, you can add positions that can later be linked to users.</p>
+                    <p>There is an MSSQL function to select existing positions, and procedures to update, delete, and insert new ones.</p>
+                </div>
+            </div>
+    
+            <div class="slide">
+                <h2>Group (Gruppe)</h2>
+                <img src="/images/Gruppe.PNG" alt="Group Screenshot" class="unifrontIMG">
+                <div class="description">
+                   
+                    <p>In the group section, you can create new groups.</p>
+                    <p>This section includes an MSSQL function to select existing groups, and procedures to update, delete, and insert new ones.</p>
+                </div>
+            </div>
+    
+            <div class="slide">
+                <h2>Group Admin (Gruppe Admin)</h2>
+                <img src="/images/Gruppe Admin.PNG" alt="Group Admin Screenshot" class="unifrontIMG">
+                <div class="description">
+                    
+                    <p>Here, you can add or remove users from groups using procedures. You can click on a group to see all its users, or click on a user to see all the groups they belong to. This was achieved using MSSQL functions.</p>
+                </div>
+            </div>
+    
+            <div class="slide">
+                <h2>Button Admin (Knapp Admin)</h2>
+                <img src="/images/Knapp Admin.PNG" alt="Button Admin Screenshot"class="unifrontIMG"><br>
+                <div class="description">
+                    
+                    <p>Here, you can grant or remove button permissions for specific groups.</p>
+                    <p>The buttons are live and managed in MSSQL, allowing groups to access certain features in the app. There are insert and delete procedures for granting and removing access.</p>
+                </div>
+            </div>
+
+            <div class="slide">
+                <h2>User with limited privileges</h2>
+                <img src="/images/RemoveFromGroupUser.PNG" alt="" class="unifrontIMG">
+                <div class="description">
+                    <p>Here you can see a user with limited privileges. They have access to User, Group, Group Admin, and Products.</p>
+                </div>
+            </div>
+    
+            <div class="slide">
+                <h2>Products (Produkter)</h2>
+                <img src="/images/OrdreAdmin.PNG" alt="Products Screenshot"class="unifrontIMG">
+                <div class="description">
+                    
+                    <p>In this section, I worked with MYSQL to create product categories.</p>
+                    <p>This section uses procedures only, with select, insert, update, and delete operations all being handled by procedures.</p>
+                </div>
+            </div>
+    
+            <div class="slide">
+                <h2>Order (Bestill)</h2>
+                <img src="/images/Bestil.PNG" alt="Order Screenshot"class="unifrontIMG">
+                <div class="description">
+                    
+                    <p>This section links the MYSQL server with the MSSQL server. Procedures and functions in MSSQL make it possible for a user to order products, with the order being assigned to the user's ID.</p>
+                </div>
+            </div>
+    
+            <div class="slide">
+                <h2>Orders (Ordre)</h2>
+                <img src="/images/Ordre.PNG" alt="Orders Screenshot"class="unifrontIMG">
+                <div class="description">
+                    
+                    <p>Users can view and cancel only their own orders. This was achieved by linking MYSQL and MSSQL, using MSSQL functions and procedures.</p>
+                </div>
+            </div>
+    
+            <div class="slide">
+                <h2>Order Admin (Ordre Admin)</h2>
+                <img src="/images/OrdreAdmin.PNG" alt="Order Admin Screenshot"class="unifrontIMG">
+                <div class="description">
+                    
+                    <p>Users with the appropriate privileges can view all orders and cancel orders for others. They can also search for specific orders. This was achieved by linking MYSQL and MSSQL, using MSSQL functions and procedures.</p>
+                </div>
+            </div>
+            <div class="slide">
+                <h2>if you want to see all of my MYSQL and MSSQL code chek out my github</h2>
+                
+                <div class="description">
+                    <a href="https://github.com/sondalgmaster/SQL-to-unifront-project">Link To my GitHub</a>
+                </div>
+            </div>
+            
+        </div>
+        
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+    </div>
+</section>
+
+
+
+<%- include("./partials/footer.ejs") %>

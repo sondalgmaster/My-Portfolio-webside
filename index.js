@@ -129,6 +129,12 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
+//Unifront app
+app.get('/unifrontapp', (req, res) => {  
+
+  res.render('UnifrontApp');
+});
+
 // Error handling middleware
 app.use((err, req, res, next) => {
     console.error(err.stack);

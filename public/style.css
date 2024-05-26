@@ -45,6 +45,173 @@ section{
 html {
     scroll-behavior: smooth;
 }
+.sectionsplit {
+    background-color: #ccc; /* Light grey color for better visibility */
+    height: 2px;
+    margin-top: 5%; /* Adjusted for better spacing */
+    margin-bottom: 5%;
+    border: none; /* Remove any default border */
+    width: 80%; /* Slightly narrower for better aesthetics */
+    margin-left: auto; /* Center the line horizontally */
+    margin-right: auto;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+}
+
+
+/* Project Section Container */
+.projectsection {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    justify-content: space-between; /* Space out the items */
+    gap: 20px; /* Space between items */
+}
+
+/* Individual Project Box */
+.projectsectiondvi {
+    flex: 1 1 calc(25% - 20px); /* Four boxes with space between */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left; /* Align text to the left */
+    padding: 20px; /* Add padding for better spacing */
+    border: 1px solid #ddd; /* Add a light border for separation */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    background-color: #1e293b; /* Slightly lighter background color */
+    transition: transform 0.3s; /* Smooth transition for hover effect */
+    cursor: pointer; /* Pointer cursor to indicate clickable area */
+}
+
+.projectsectiondvi:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.projectsectiondvi a {
+    text-decoration: none;
+    color: inherit; /* Inherit color from parent */
+    width: 100%; /* Make link take full width */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+}
+
+.projectsectiondvi h3 {
+    margin-bottom: 10px; /* Space below heading */
+    font-size: 1.5em; /* Larger font size for heading */
+    color: #00ff00; /* Matching the green text color */
+}
+
+.projectsectiondvi p {
+    flex-grow: 1; /* Allow paragraph to take up remaining space */
+    margin-bottom: 10px; /* Space below paragraph */
+    font-size: 1em; /* Standard font size */
+    color: #ccc; /* Light grey color for text */
+}
+
+.projectIMG {
+    max-width: 100%; /* Ensure image doesn't overflow */
+    border-radius: 8px; /* Rounded corners for image */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+#projects h1 {
+    text-align: center; /* Center the main heading */
+    font-size: 2.5em; /* Larger font size for main heading */
+    margin-bottom: 40px; /* Space below heading */
+    color: #00ff00; /* Matching the green text color */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    .projectsectiondvi {
+        flex: 1 1 calc(50% - 20px); /* Two boxes per row on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .projectsectiondvi {
+        flex: 1 1 100%; /* One box per row on small screens */
+    }
+}
+
+/*Project section*/
+.slider {
+    position: relative;
+}
+
+.slides {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+
+.slide {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    width: 100%;
+    padding: 20px;
+}
+
+.unifrontIMG {
+    max-width: 70%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: block; /* Ensure the image is displayed as a block element */
+    margin: 0 auto; /* Center the image horizontally */
+}
+
+
+
+.description {
+    padding: 20px;
+    text-align: center;
+}
+
+.prev{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(to left, #12025c1a, #1a058d9f); /* Gradient background */
+    border: none;
+    cursor: pointer;
+    padding: 400px 30px; /* Increase button padding for larger size */
+    color: white; /* Text color */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 18px; /* Increase font size */   
+    transition: background 0.3s; /* Smooth transition */
+}
+.prev:hover {
+    background: linear-gradient(to left, #1805c0, #1840f3); /* Gradient background on hover */
+}
+.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(to right, #12025c1a, #1a058d9f); /* Gradient background */
+    border: none;
+    cursor: pointer;
+    padding: 400px 30px; /* Increase button padding for larger size */
+    color: white; /* Text color */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 18px; /* Increase font size */   
+    transition: background 0.3s; /* Smooth transition */
+}
+
+.next:hover {
+    background: linear-gradient(to right, #1805c0, #1840f3); /* Gradient background on hover */
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+
 
 
 

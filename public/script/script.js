@@ -43,7 +43,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //scrol sections
 document.addEventListener("DOMContentLoaded", function() {
-    window.addEventListener("scroll", function() {
+    // Function to check section visibility
+    function checkSectionVisibility() {
         let sections = document.querySelectorAll("section");
         sections.forEach(function(section) {
             let position = section.getBoundingClientRect();
@@ -53,9 +54,14 @@ document.addEventListener("DOMContentLoaded", function() {
                 section.classList.remove("visible");
             }
         });
-    });
-});
+    }
 
+    // Run visibility check on scroll
+    window.addEventListener("scroll", checkSectionVisibility);
+
+    // Initial run to check visibility on page load
+    checkSectionVisibility();
+});
 
 document.addEventListener("DOMContentLoaded", function() {
     let footer = document.querySelector("footer");
@@ -75,6 +81,37 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+//slider for pictures at UnifrontAPP.ejs
+const slides = document.querySelector('.slides');
+const prevBtn = document.querySelector('.prev');
+const nextBtn = document.querySelector('.next');
+
+let scrollAmount = 0;
+const slideWidth = slides.scrollWidth / slides.children.length;
+
+prevBtn.addEventListener('click', () => {
+    scrollAmount -= slideWidth;
+    if (scrollAmount < 0) scrollAmount = 0;
+    slides.scrollTo({
+        top: 0,
+        left: scrollAmount,
+        behavior: 'smooth'
+    });
+});
+
+nextBtn.addEventListener('click', () => {
+    scrollAmount += slideWidth;
+    if (scrollAmount > slides.scrollWidth - slides.clientWidth) {
+        scrollAmount = slides.scrollWidth - slides.clientWidth;
+    }
+    slides.scrollTo({
+        top: 0,
+        left: scrollAmount,
+        behavior: 'smooth'
+    });
+});
+
 
 
 
