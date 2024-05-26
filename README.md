@@ -76,11 +76,11 @@ Make sure you have Node.js and npm installed. You can download them from the htt
 
    Create a `.env` file in the root directory and add your environment variables. For example:
    ```env
-MY_EMAIL=your@email.com
-APP_PASS=yourapppass
+   MY_EMAIL=your@email.com
+   APP_PASS=yourapppass
 
-DB_USER=yourUser
-DB_PASS=YourPassword
+   DB_USER=yourUser
+   DB_PASS=YourPassword
    ```
 
 2. **Run the application**
