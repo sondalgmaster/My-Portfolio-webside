@@ -11,7 +11,7 @@ const app = express();
 dotenv.config();
 
 //login form .env
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 3000;
 //email
 const myemail = process.env.MY_EMAIL;
 const appPass = process.env.APP_PASS;
