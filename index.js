@@ -69,7 +69,7 @@ app.post('/submit-contact-form', (req, res) => {
       });
     } catch (error) {
       console.error('Unexpected error:', error);
-      res.status(500).send('Internal Server Error');
+      res.status(500).send('Different Internal Server Error');
     }
   });
 
