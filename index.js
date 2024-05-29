@@ -30,7 +30,23 @@ const db = mysql.createConnection({
 });
 
 
-
+db.on('error', function(err) {
+  console.error('MySQL error:', err);
+  if (err.code === 'PROTOCOL_CONNECTION_LOST') {
+      console.error('MySQL connection lost. Attempting to reconnect...');
+      db.connect(function(err) {
+          if (err) {
+              console.error('Error reconnecting to MySQL:', err);
+          } else {
+              console.log('Reconnected to MySQL database.');
+          }
+      });
+  } else if (err.code === 'ER_ACCESS_DENIED_ERROR') {
+      console.error('MySQL authentication failed. Check login credentials.');
+  } else {
+      throw err;
+  }
+});
 
 
 
