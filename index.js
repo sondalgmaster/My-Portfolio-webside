@@ -52,7 +52,7 @@ app.post('/submit-contact-form', (req, res) => {
       db.query(sql, values, async (error, results, fields) => {
         if (error) {
           console.error('Error inserting data into MySQL:', error);
-          res.status(500).send('Internal Server Error');
+          res.status(500).send('Internal MYSQL Server Error');
           return;
         }
   
@@ -64,7 +64,7 @@ app.post('/submit-contact-form', (req, res) => {
           res.redirect('/');
         } catch (mailError) {
           console.error('Error sending email:', mailError);
-          res.status(500).send('Internal Server Error');
+          res.status(500).send('Internal Mail Server Error');
         }
       });
     } catch (error) {
@@ -119,6 +119,7 @@ async function sendMail({ email, firstName, lastName, company, phone, message })
 
   const selfMailInfo = await transporter.sendMail(selfMailOptions);
   console.log("Self email sent: " + selfMailInfo.messageId);
+  
 }
   
 
