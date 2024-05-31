@@ -87,7 +87,7 @@ Make sure you have Node.js and npm installed. You can download them from the htt
 
    Use Nodemon to run the server:
    ```sh
-   nodemon index.js
+   npx nodemon index.js
    ```
 
    Your server will start and automatically restart whenever you make changes to the files.
